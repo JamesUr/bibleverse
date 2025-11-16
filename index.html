@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="text">Click to generate a bible verse</p>
+    <button id="button">Click me!</button>
+    <script>
+        document.getElementById("button").addEventListener("click",function(){
+            function main(data){
+                var book = data[0].bookname
+                var chap = data[0].chapter
+                var vers = data[0].verse
+                var result = book + " " + chap + ":" + vers
+                document.getElementById("text").textContent = result
+            }
+
+            fetch("https://labs.bible.org/api/?passage=random&type=json")
+            .then(response => response.json())
+            .then(data => main(data))
+        })
+        
+    </script>
+</body>
+</html>
