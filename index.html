@@ -5,13 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
+<body style="background-color: rgb(32, 32, 32);">
     
-    <p id="text" style="position: absolute; left: 50%; top: 30px;transform: translate(-50%, -45%);
+    <p id="title" style="position: absolute; left: 50%; top: 30px;transform: translate(-50%, -45%);
     font-family:Verdana, Geneva, Tahoma, sans-serif; font-size: 30px; user-select: none;
-    color: rgb(0, 0, 0); mix-blend-mode:difference;">Click to generate a bible verse</p>
+    color: rgb(255, 255, 255); mix-blend-mode:difference;">Click to generate a bible verse</p>
     
-    <button id="button" style="position: absolute; left: 50%; top: 120px; transform: translate(-50%, -55%);
+    <p id="text" style="position: absolute; left: 50%; top: 120px;transform: translate(-50%, -45%);
+    font-family:Verdana, Geneva, Tahoma, sans-serif; font-size: 15px; user-select: none; width: 95%; text-align: center;
+    color: rgb(255, 255, 255); mix-blend-mode:difference;"></p>
+
+    <button id="button" style="position: absolute; left: 50%; top: 220px; transform: translate(-50%, -55%);
     font-family:Verdana, Geneva, Tahoma, sans-serif">Click me!</button>
     
     <script>
@@ -20,8 +24,10 @@
                 var book = data[0].bookname
                 var chap = data[0].chapter
                 var vers = data[0].verse
+                var text = data[0].text
                 var result = book + " " + chap + ":" + vers
-                document.getElementById("text").textContent = result
+                document.getElementById("title").textContent = result
+                document.getElementById("text").textContent = text
             }
 
             fetch("https://labs.bible.org/api/?passage=random&type=json")
