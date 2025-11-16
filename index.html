@@ -6,8 +6,12 @@
     <title>Document</title>
 </head>
 <body>
-    <p id="text">Click to generate a bible verse</p>
-    <button id="button">Click me!</button>
+    <p id="text" style="position: absolute; left: 50%; top: 45%;transform: translate(-50%, -45%);
+    font-family:Verdana, Geneva, Tahoma, sans-serif; font-size: 30px;">Click to generate a bible verse</p>
+    
+    <button id="button" style="position: absolute; left: 50%; top: 55%; transform: translate(-50%, -55%);
+    font-family:Verdana, Geneva, Tahoma, sans-serif">Click me!</button>
+    
     <script>
         document.getElementById("button").addEventListener("click",function(){
             function main(data){
@@ -22,7 +26,6 @@
             .then(response => response.json())
             .then(data => main(data))
         })
-        
     </script>
 </body>
 </html>
